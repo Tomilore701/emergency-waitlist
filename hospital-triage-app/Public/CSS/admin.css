@@ -18,6 +18,14 @@ body, h1, h2, p, table, button {
     color: #fff;
     padding: 20px 0;
   }
+
+    /* Footer styles */
+    footer {
+      background-color: #FFC107;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
   
   h1 {
     font-size: 2rem;

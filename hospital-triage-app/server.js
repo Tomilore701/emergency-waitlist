@@ -162,6 +162,34 @@ app.post('/checkWaitTime', async (req, res) => {
     }
 });
 
+app.post('/registerPatient', async (req, res) => {
+    const { name, date_of_birth, gender, injury, pain_level, priority_level, card_number, room_id } = req.body;
+
+    // Check for missing fields
+    if (!name || !date_of_birth || !gender || !injury || !pain_level || !priority_level || !card_number || !room_id) {
+        return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    try {
+        const client = await pool.connect();
+
+        // Insert the patient data
+        const query = `
+            INSERT INTO PATIENTS (card_number, name, gender, date_of_birth, medical_issue, arrival_time, priority_id, room_id)
+            VALUES ($1, $2, $3, $4, $5, NOW(), 
+                    (SELECT priority_id FROM PRIORITIES WHERE description = $6), $7)
+            RETURNING *;
+        `;
+        const result = await client.query(query, [card_number, name, gender, date_of_birth, injury, priority_level, room_id]);
+
+        client.release();
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error('Error registering patient:', err.stack);
+        res.status(500).json({ error: 'Database error' });
+    }
+});
+
 
 
 app.listen(port, () => {

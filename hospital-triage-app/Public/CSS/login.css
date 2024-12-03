@@ -18,6 +18,14 @@ body, h1, h2, p, form, label, input, button {
     padding: 20px 0;
     text-align: center;
   }
+
+  /* Footer styles */
+  footer {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
   
   /* Main login container */
   .login-container {
@@ -86,4 +94,5 @@ body, h1, h2, p, form, label, input, button {
       margin-bottom: 10px;
     }
   }
+  
   

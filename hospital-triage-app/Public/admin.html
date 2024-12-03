@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hospital Triage App - Admin</title>
-  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="admin.css">
 </head>
 <body>
   <header>
@@ -19,11 +19,11 @@
       <table>
         <thead>
           <tr>
-            <th>Entry Number</th>
+            <th>Card Number</th>
             <th>Name</th>
             <th>Injury Type</th>
             <th>Pain Level</th>
-            <th>Necessary Attention</th>
+            <th>Priority level</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -31,7 +31,17 @@
          
         </tbody>
       </table>
+      <button id="loadData" class="button">Load Data</button>
+      <p>Selection actions:</p>
+      <p id="selectedEntryDisplay">Selected Entry:</p>
+      <button id="removeData" class="button">Remove From Triage</button>
+      <button id="increaseLevel" class="button">Increase Priority Level </button>
+      <button id="decreaseLevel" class="button">Decrease Priority Level</button>
     </div>
   </main>
+  <footer>
+    <p>&copy; 2024 Hospital Triage System. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

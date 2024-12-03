@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospital Triage App - User</title>
+  <title>Hospital Triage - Register Patient</title>
   <link rel="stylesheet" href="user.css">
 </head>
 <body>
@@ -11,50 +11,72 @@
     <h1>Hospital Triage - User</h1>
   </header>
   <main>
-    <div class="form-container">
-      <h2>Please select your type of injury and pain level:</h2>
+    <h2>Please fill in your details, select your type of injury, and rate your level of pain.</h2>
 
-      <!-- Injury Type -->
-      <section class="injury-section">
-        <h3>Type of Injury:</h3>
-        <form id="injury-form">
-          <div class="injury-options">
-            <label><input type="radio" name="injury" value="Head"> Head</label>
-            <label><input type="radio" name="injury" value="Heart"> Heart</label>
-            <label><input type="radio" name="injury" value="Lung"> Lung</label>
-            <label><input type="radio" name="injury" value="Neck"> Neck</label>
-            <label><input type="radio" name="injury" value="Stomach"> Stomach</label>
-            <label><input type="radio" name="injury" value="Bone or Muscle"> Bone or Muscle</label>
-            <label><input type="radio" name="injury" value="Burn or Cut"> Burn or Cut</label>
-          </div>
-        </form>
-      </section>
+    <!-- Patient Details Section -->
+    <section class="patient-details">
+      <h3>Patient Details:</h3>
+      <form id="patient-registration-form">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="date_of_birth">Date of Birth:</label>
+          <input type="date" id="date_of_birth" name="date_of_birth" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </form>
+    </section>
 
-      <!-- Pain Level -->
-      <section class="pain-section">
-        <h3>Level of Pain:</h3>
-        <form id="pain-form">
-          <div class="pain-options">
-            <label><input type="radio" name="pain" value="1"> 1</label>
-            <label><input type="radio" name="pain" value="2"> 2</label>
-            <label><input type="radio" name="pain" value="3"> 3</label>
-            <label><input type="radio" name="pain" value="4"> 4</label>
-            <label><input type="radio" name="pain" value="5"> 5</label>
-            <label><input type="radio" name="pain" value="6"> 6</label>
-            <label><input type="radio" name="pain" value="7"> 7</label>
-            <label><input type="radio" name="pain" value="8"> 8</label>
-            <label><input type="radio" name="pain" value="9"> 9</label>
-            <label><input type="radio" name="pain" value="10"> 10</label>
-          </div>
-        </form>
-      </section>
+    <!-- Type of Injury Section -->
+    <section class="injury-section">
+      <h3>Type of Injury:</h3>
+      <div class="injury-options">
+        <button class="injury-button" data-injury="Head">Head</button>
+        <button class="injury-button" data-injury="Heart">Heart</button>
+        <button class="injury-button" data-injury="Lung">Lung</button>
+        <button class="injury-button" data-injury="Neck">Neck</button>
+        <button class="injury-button" data-injury="Stomach">Stomach</button>
+        <button class="injury-button" data-injury="Bone or Muscle">Bone or Muscle</button>
+        <button class="injury-button" data-injury="Burn or Cut">Burn or Cut</button>
+      </div>
+    </section>
 
-      <!-- Submit Button -->
-      <button class="submit-button" type="button">Submit Entry</button>
-    </div>
+    <!-- Level of Pain Section -->
+    <section class="pain-section">
+      <h3>Level of Pain:</h3>
+      <div class="pain-options">
+        <button class="pain-button" data-pain="1">1 (Not bad)</button>
+        <button class="pain-button" data-pain="2">2</button>
+        <button class="pain-button" data-pain="3">3</button>
+        <button class="pain-button" data-pain="4">4</button>
+        <button class="pain-button" data-pain="5">5</button>
+        <button class="pain-button" data-pain="6">6</button>
+        <button class="pain-button" data-pain="7">7</button>
+        <button class="pain-button" data-pain="8">8</button>
+        <button class="pain-button" data-pain="9">9</button>
+        <button class="pain-button" data-pain="10">10 (Unbearable)</button>
+      </div>
+    </section>
+
+    <!-- Submit Button -->
+    <button id="register-button" class="submit-button">Register</button>
+
+    <!-- Result Display -->
+    <div id="result-display" class="result"></div>
   </main>
   <footer>
     <p>&copy; 2024 Hospital Triage System. All rights reserved.</p>
   </footer>
+  <script src="user.js"></script>
 </body>
 </html>

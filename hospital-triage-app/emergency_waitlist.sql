@@ -129,3 +129,8 @@ FROM OrderedQueue oq
 JOIN CurrentPatient cp ON oq.queue_position < cp.queue_position;
 
 SELECT * FROM patients
+
+INSERT INTO PATIENTS (card_number, name, gender, date_of_birth, medical_issue, arrival_time, priority_id, room_id)
+VALUES ('CN1234', 'John Doe', 'Male', '1980-01-01', 'Head Injury', NOW(), 
+        (SELECT priority_id FROM PRIORITIES WHERE description = 'High'), 1)
+RETURNING *;

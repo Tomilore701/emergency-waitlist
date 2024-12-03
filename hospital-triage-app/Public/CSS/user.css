@@ -18,6 +18,14 @@ body, h1, h2, h3, label, input, button {
     color: white;
     padding: 20px 0;
   }
+
+    /* Footer styles */
+    footer {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
   
   h1 {
     font-size: 2rem;
